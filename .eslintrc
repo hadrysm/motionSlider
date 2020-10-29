@@ -1,8 +1,21 @@
 {
   "extends": ["airbnb", "prettier", "prettier/react"],
+
+  "env": {
+    "jest": true
+  },
+
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/jsx-props-no-spreading": 0,
+    "import/prefer-default-export": 0,
+    "import/no-unresolved": 0
+  },
+
+  "globals": {
+    "document": false,
+    "window": false
   }
 }
