@@ -17,5 +17,14 @@
   "globals": {
     "document": false,
     "window": false
+  },
+
+  "settings": {
+    "imports/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js"]
+      }
+    }
   }
 }
