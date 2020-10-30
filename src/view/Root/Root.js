@@ -1,8 +1,9 @@
 import PageTemplate from 'templates/PageTempalte/PageTempalte';
+import HomePage from 'view/HomePage/HomePage';
 
 const Root = () => (
   <PageTemplate>
-    <h1>root</h1>
+    <HomePage />
   </PageTemplate>
 );
 

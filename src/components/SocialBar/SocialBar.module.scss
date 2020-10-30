@@ -4,9 +4,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 10rem;
+  width: 5rem;
   height: 100vh;
   @include flex();
+
+  @include media(tablet) {
+    width: 10rem;
+  }
 }
 
 .socialList {
