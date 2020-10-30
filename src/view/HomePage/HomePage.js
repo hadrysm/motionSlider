@@ -1,5 +1,5 @@
 import MotionSlider from 'components/MotionSlider/MotionSlider';
-import { imageData } from 'data';
+import { imagesData } from 'data';
 
 import { wrapper, main } from './HomePage.module.scss';
 
@@ -10,7 +10,7 @@ const HomePage = () => {
         <h2>Motion slider</h2>
       </header>
       <main className={main}>
-        <MotionSlider data={imageData} />
+        <MotionSlider data={imagesData} />
       </main>
     </div>
   );
