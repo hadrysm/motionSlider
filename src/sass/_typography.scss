@@ -12,7 +12,11 @@ body {
   font-family: $font-primary;
   font-size: 1.6rem;
   background-color: $color-background;
-  margin-left: 10rem;
+  margin-left: 5rem;
+
+  @include media(tablet) {
+    margin-left: 10rem;
+  }
 }
 
 h1 {
