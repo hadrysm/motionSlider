@@ -1,0 +1,67 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: 1.6rem;
+  background-color: $color-background;
+  margin-left: 10rem;
+}
+
+h1 {
+  @include font-style($font-primary, 3.3rem, 300, 5.1rem, $color-dark);
+  margin-bottom: 3rem;
+  text-transform: capitalize;
+}
+
+h2 {
+  @include font-style($font-primary, 3rem, 400, 4.3rem, $color-dark);
+  margin-bottom: 1.4rem;
+  text-transform: capitalize;
+}
+
+h3 {
+  @include font-style($font-primary, 2.8rem, 400, 3.8rem, $color-dark);
+  margin-bottom: 4.5rem;
+}
+
+h4 {
+  @include font-style($font-primary, 2.6rem, 400, 3.6rem, $color-dark);
+  margin-top: 4rem;
+}
+
+h5 {
+  @include font-style($font-primary, 2.4rem, 400, 3.2rem, $color-dark);
+  margin-bottom: 4.5rem;
+}
+
+h6 {
+  @include font-style($font-primary, 1.8rem, 400, 2.4rem, $color-dark);
+  margin-bottom: 1rem;
+}
+
+p {
+  @include font-style($font-primary, 1.6rem, 300, 2.9rem, $color-dark);
+  margin: 2rem 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}

@@ -1,0 +1,30 @@
+// colors
+$color-white: #ffffff;
+$color-dark: #202124;
+$color-background: #f0efeb;
+
+// fonts
+$base-font-size: 62.5%;
+$font-primary: 'Oswald', sans-serif;
+
+// media
+$breakpoints: (
+  phone: (
+    min-width: 374px,
+  ),
+  tablet: (
+    min-width: 767px,
+  ),
+  bigTablet: (
+    min-width: 1020px,
+  ),
+  desktop: (
+    min-width: 1150px,
+  ),
+  bigDesktop: (
+    min-width: 1440px,
+  ),
+  huge: (
+    min-width: 1700px,
+  ),
+);
