@@ -1,0 +1,14 @@
+@import 'sass/index.scss';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+
+.svgIcon {
+  color: $color-dark;
+  font-size: 2.5rem;
+}
