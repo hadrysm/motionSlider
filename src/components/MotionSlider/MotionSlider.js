@@ -1,20 +1,30 @@
+import PropTypes from 'prop-types';
 import { AnimatePresence } from 'framer-motion';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
-import { wrapper, slider, controls } from './MotionSlider.module.scss';
+import {
+  container,
+  slider,
+  controls,
+  contentContainer,
+  imgContainer,
+} from './MotionSlider.module.scss';
 
-const MotionSlider = () => {
+const MotionSlider = ({ data }) => {
   return (
     <AnimatePresence initial={false}>
-      <div className={wrapper}>
+      <div className={container}>
         <div className={slider}>
-          <div>
-            <img src="" alt="" />
+          <div className={imgContainer}>
+            <img src={data[1].srcImg} alt="" />
           </div>
-          <div>
-            <h4>tytuł slidera</h4>
+          <div className={contentContainer}>
+            <h4>
+              Its all good. I was amazed at th quality of the Design. We ve seen
+            </h4>
+            <p>Jessica Span</p>
             <p>lorem asd sa asdasd asddas das dasd asd as asd as dsad as</p>
           </div>
         </div>
@@ -25,6 +35,10 @@ const MotionSlider = () => {
       </div>
     </AnimatePresence>
   );
+};
+
+MotionSlider.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MotionSlider;

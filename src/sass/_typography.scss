@@ -12,11 +12,11 @@ body {
   font-family: $font-primary;
   font-size: 1.6rem;
   background-color: $color-background;
-  margin-left: 5rem;
+  // margin-left: 5rem;
 
-  @include media(tablet) {
-    margin-left: 10rem;
-  }
+  // @include media(tablet) {
+  //   margin-left: 10rem;
+  // }
 }
 
 h1 {
@@ -37,7 +37,7 @@ h3 {
 }
 
 h4 {
-  @include font-style($font-primary, 2.6rem, 400, 3.6rem, $color-dark);
+  @include font-style($font-primary, 2.6rem, 400, 3rem, $color-dark);
   margin-top: 4rem;
 }
 
@@ -52,7 +52,7 @@ h6 {
 }
 
 p {
-  @include font-style($font-primary, 1.6rem, 300, 2.9rem, $color-dark);
+  @include font-style($font-primary, 1.6rem, 300, 2rem, $color-dark);
   margin: 2rem 0;
 }
 

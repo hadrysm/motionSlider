@@ -1,23 +1,93 @@
-.wrapper {
+@import 'sass/index.scss';
+
+.container {
   width: 100%;
-  height: 100%;
+  max-width: 80rem;
+  height: 80%;
   position: relative;
-}
 
-.slider {
-  width: 95%;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 4rem;
-}
+  .slider {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.controls {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  z-index: 1;
+    .imgContainer {
+      max-width: 40rem;
+      max-height: 100%;
+      position: relative;
+
+      &::after,
+      &::before {
+        content: '';
+        position: absolute;
+        width: 15rem;
+        height: 15rem;
+        background: $color-primary;
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      &::after {
+        top: -7rem;
+        right: -3rem;
+      }
+
+      &::before {
+        bottom: -3rem;
+        left: -5rem;
+      }
+
+      @include media(tablet) {
+        padding: 0 5rem;
+      }
+    }
+
+    .contentContainer {
+      position: absolute;
+      bottom: -5rem;
+      right: -4rem;
+      max-width: 300px;
+
+      background-color: rgba($color: $color-background, $alpha: 0.85);
+
+      padding: 1rem 3rem;
+      border-radius: 1rem;
+
+      @include media(tablet) {
+        position: static;
+        padding: 4rem 3rem;
+      }
+
+      h4 {
+        margin-top: 0;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      p {
+        margin: 0;
+        padding: 0.5rem 0;
+        font-size: 1.3rem;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  .controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+  }
 }
