@@ -9,7 +9,7 @@ const ButtonIcon = ({ icon: Icon }) => (
 );
 
 ButtonIcon.propTypes = {
-  icon: PropTypes.node.isRequired,
+  icon: PropTypes.func.isRequired,
 };
 
 export default ButtonIcon;

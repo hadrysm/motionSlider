@@ -18,13 +18,13 @@ const MotionSlider = ({ data }) => {
       <div className={container}>
         <div className={slider}>
           <div className={imgContainer}>
-            <img src={data[1].srcImg} alt="" />
+            <img src={data[0].srcImg} alt="" />
           </div>
           <div className={contentContainer}>
             <h4>
               Its all good. I was amazed at th quality of the Design. We ve seen
             </h4>
-            <p>Jessica Span</p>
+            <span>Jessica Span</span>
             <p>lorem asd sa asdasd asddas das dasd asd as asd as dsad as</p>
           </div>
         </div>
