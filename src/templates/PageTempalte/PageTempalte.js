@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 
 import Layout from 'templates/Layout/Layout';
 import Wrapper from 'components/Wrapper/Wrapper';
-// import SocialBar from 'components/SocialBar/SocialBar';
+import SocialBar from 'components/SocialBar/SocialBar';
 
 const PageTempalte = ({ children }) => {
   return (
     <Layout>
       <Wrapper isFlex isColumn>
+        <SocialBar />
         {children}
-        {/* <SocialBar /> */}
       </Wrapper>
     </Layout>
   );

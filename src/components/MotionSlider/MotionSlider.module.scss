@@ -6,6 +6,27 @@
   height: 80%;
   position: relative;
 
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: 15rem;
+    height: 15rem;
+    background: $color-primary;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  &::after {
+    top: -7rem;
+    right: -3rem;
+  }
+
+  &::before {
+    bottom: -3rem;
+    left: -5rem;
+  }
+
   .slider {
     width: 100%;
     height: 100%;
@@ -16,38 +37,17 @@
     justify-content: center;
 
     .imgContainer {
-      max-width: 40rem;
-      max-height: 100%;
-      position: relative;
+      height: 46rem;
+      width: 34rem;
 
       @include media(tablet) {
-        padding: 0 5rem;
-      }
-
-      &::after,
-      &::before {
-        content: '';
-        position: absolute;
-        width: 15rem;
-        height: 15rem;
-        background: $color-primary;
-        border-radius: 50%;
-        z-index: -1;
-      }
-
-      &::after {
-        top: -7rem;
-        right: -3rem;
-      }
-
-      &::before {
-        bottom: -3rem;
-        left: -5rem;
+        margin: 0 5rem;
       }
 
       img {
         border-radius: 1rem;
         box-shadow: 5px 3px 33px -15px $color-dark;
+        pointer-events: none;
       }
     }
 
@@ -86,7 +86,7 @@
           position: absolute;
           bottom: 0;
           left: 0;
-          width: 80%;
+          width: 100%;
           height: 80%;
           background: $color-primary;
           opacity: 0.4;
@@ -102,13 +102,17 @@
     }
   }
 
-  .controls {
+  .buttonLeft {
     position: absolute;
     top: 0;
+    bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
+  }
+
+  .buttonRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
   }
 }
