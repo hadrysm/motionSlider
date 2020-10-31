@@ -21,7 +21,7 @@ import {
 const { containerVariants, imgVariants, textVariants } = motionSliderVariants;
 
 // can swipe
-const swipingThreshold = 100000;
+const swipingThreshold = 10000;
 
 const MotionSlider = ({ data }) => {
   const [[page, direction], setPage] = useState([0, 0]);
@@ -38,9 +38,9 @@ const MotionSlider = ({ data }) => {
 
   const handleDrag = (e, { offset, velocity }) => {
     const swipe = swipePower(offset.x, velocity.x);
-    if (swipe > swipingThreshold) {
+    if (swipe < -swipingThreshold) {
       handleChangeSlide(1);
-    } else if (swipe < swipingThreshold) {
+    } else if (swipe > swipingThreshold) {
       handleChangeSlide(-1);
     }
   };
