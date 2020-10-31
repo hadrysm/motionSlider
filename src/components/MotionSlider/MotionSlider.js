@@ -5,18 +5,21 @@ import { wrap } from 'popmotion';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 
 import { motionSliderVariants } from 'variants';
+import { swipePower } from 'helpers';
 
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import {
   container,
   slider,
-  controls,
+  buttonLeft,
+  buttonRight,
   contentContainer,
   imgContainer,
 } from './MotionSlider.module.scss';
 
 const { containerVariants, imgVariants, textVariants } = motionSliderVariants;
+const swipingThreshold = 100000;
 
 const MotionSlider = ({ data }) => {
   const [[page, direction], setPage] = useState([0, 0]);
@@ -31,6 +34,15 @@ const MotionSlider = ({ data }) => {
     setPage(([prevPage]) => [prevPage + newDirection, newDirection]);
   };
 
+  const handleDrag = (e, { offset, velocity }) => {
+    const swipe = swipePower(offset.x, velocity.x);
+    if (swipe > swipingThreshold) {
+      handleChangeSlide(1);
+    } else if (swipe < swipingThreshold) {
+      handleChangeSlide(-1);
+    }
+  };
+
   return (
     <div className={container}>
       <AnimatePresence initial={false} custom={direction} exitBeforeEnter>
@@ -42,6 +54,10 @@ const MotionSlider = ({ data }) => {
           initial="hidden"
           animate="visible"
           exit="exit"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={1}
+          onDragEnd={(e, info) => handleDrag(e, info)}
         >
           <motion.div className={imgContainer} variants={imgVariants}>
             <img src={srcImg} alt={name} />
@@ -54,16 +70,16 @@ const MotionSlider = ({ data }) => {
         </motion.div>
       </AnimatePresence>
 
-      <div className={controls}>
-        <ButtonIcon
-          icon={MdNavigateBefore}
-          onClick={() => handleChangeSlide(-1)}
-        />
-        <ButtonIcon
-          icon={MdNavigateNext}
-          onClick={() => handleChangeSlide(1)}
-        />
-      </div>
+      <ButtonIcon
+        classNames={buttonLeft}
+        icon={MdNavigateBefore}
+        onClick={() => handleChangeSlide(-1)}
+      />
+      <ButtonIcon
+        classNames={buttonRight}
+        icon={MdNavigateNext}
+        onClick={() => handleChangeSlide(1)}
+      />
     </div>
   );
 };
