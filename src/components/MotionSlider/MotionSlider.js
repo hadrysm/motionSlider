@@ -19,6 +19,8 @@ import {
 } from './MotionSlider.module.scss';
 
 const { containerVariants, imgVariants, textVariants } = motionSliderVariants;
+
+// can swipe
 const swipingThreshold = 100000;
 
 const MotionSlider = ({ data }) => {

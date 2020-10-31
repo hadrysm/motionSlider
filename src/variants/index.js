@@ -50,3 +50,12 @@ export const motionSliderVariants = {
     },
   },
 };
+
+export const buttonIconVariants = {
+  hover: {
+    scale: 1.2,
+  },
+  tap: {
+    scale: 0.9,
+  },
+};

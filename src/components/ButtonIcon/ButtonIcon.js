@@ -1,11 +1,20 @@
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 
+import { buttonIconVariants } from 'variants';
 import { button, svgIcon } from './ButtonIcon.module.scss';
 
 const ButtonIcon = ({ icon: Icon, classNames, ...props }) => (
-  <button type="button" className={`${button} ${classNames}`} {...props}>
+  <motion.button
+    type="button"
+    className={`${button} ${classNames}`}
+    {...props}
+    variants={buttonIconVariants}
+    whileHover="hover"
+    whileTap="tap"
+  >
     <Icon className={svgIcon} />
-  </button>
+  </motion.button>
 );
 
 ButtonIcon.propTypes = {
