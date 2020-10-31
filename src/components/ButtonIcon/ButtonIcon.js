@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 import { button, svgIcon } from './ButtonIcon.module.scss';
 
-const ButtonIcon = ({ icon: Icon }) => (
-  <button type="button" className={button}>
+const ButtonIcon = ({ icon: Icon, ...props }) => (
+  <button type="button" className={button} {...props}>
     <Icon className={svgIcon} />
   </button>
 );
