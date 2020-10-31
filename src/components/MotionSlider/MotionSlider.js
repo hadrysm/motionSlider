@@ -4,6 +4,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { wrap } from 'popmotion';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 
+import { motionSliderVariants } from 'variants';
+
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import {
@@ -14,63 +16,7 @@ import {
   imgContainer,
 } from './MotionSlider.module.scss';
 
-const childTransition = {
-  type: 'spring',
-  stiffness: 120,
-  damping: 13,
-};
-
-const containerVariants = {
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-
-  exit: {
-    transition: {
-      staggerChildren: 0.1,
-      staggerDirection: -1,
-    },
-  },
-};
-
-const imgVariants = {
-  hidden: (direction) => {
-    return {
-      x: direction > 0 ? -30 : 30,
-      opacity: 0,
-    };
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction) => {
-    return {
-      x: direction < 0 ? 30 : -30,
-      opacity: 0,
-    };
-  },
-};
-
-const textVariants = {
-  hidden: {
-    y: -50,
-    opacity: 0,
-    transition: childTransition,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: childTransition,
-  },
-  exit: {
-    y: 20,
-    opacity: 0,
-    transition: childTransition,
-  },
-};
+const { containerVariants, imgVariants, textVariants } = motionSliderVariants;
 
 const MotionSlider = ({ data }) => {
   const [[page, direction], setPage] = useState([0, 0]);
