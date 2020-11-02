@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { wrap } from 'popmotion';
@@ -6,10 +6,10 @@ import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+
 import { motionSliderVariants } from 'variants';
 import { swipePower } from 'helpers';
-
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import {
   container,
@@ -24,9 +24,11 @@ const { containerVariants, imgVariants, textVariants } = motionSliderVariants;
 
 // can swipe
 const swipingThreshold = 100000;
+const nextSlideTime = 6000;
 
 const MotionSlider = ({ data }) => {
   const [[page, direction], setPage] = useState([0, 0]);
+  const intervalRef = useRef(0);
   // wrap(0, 1, 0.5); // 0.5
   // wrap(0, 1, 1.5); // 0.5
   const currentIndex = wrap(0, data.length, page);
@@ -45,6 +47,15 @@ const MotionSlider = ({ data }) => {
       handleChangeSlide(-1);
     }
   };
+
+  useEffect(() => {
+    intervalRef.current = setInterval(
+      () => handleChangeSlide(1),
+      nextSlideTime,
+    );
+
+    return () => clearInterval(intervalRef.current);
+  }, [handleChangeSlide]);
 
   return (
     <div className={container}>
