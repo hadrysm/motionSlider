@@ -21,11 +21,10 @@ import {
 const { containerVariants, imgVariants, textVariants } = motionSliderVariants;
 
 // can swipe
-const swipingThreshold = 10000;
+const swipingThreshold = 100000;
 
 const MotionSlider = ({ data }) => {
   const [[page, direction], setPage] = useState([0, 0]);
-
   // wrap(0, 1, 0.5); // 0.5
   // wrap(0, 1, 1.5); // 0.5
   const currentIndex = wrap(0, data.length, page);
