@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { wrap } from 'popmotion';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { motionSliderVariants } from 'variants';
 import { swipePower } from 'helpers';
@@ -61,7 +63,13 @@ const MotionSlider = ({ data }) => {
           onDragEnd={(e, info) => handleDrag(e, info)}
         >
           <motion.div className={imgContainer} variants={imgVariants}>
-            <img src={srcImg} alt={name} />
+            <LazyLoadImage
+              effect="blur"
+              width="100%"
+              height="100%"
+              src={srcImg}
+              alt={name}
+            />
           </motion.div>
           <div className={contentContainer}>
             <motion.h4 variants={textVariants}>{quote}</motion.h4>
