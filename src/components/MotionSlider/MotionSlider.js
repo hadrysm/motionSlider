@@ -20,12 +20,7 @@ import {
 
 const { containerVariants, imgVariants, textVariants } = motionSliderVariants;
 
-const MotionSlider = ({ data }) => {
-  const options = {
-    nextSlideTime: 6000,
-    swipingThreshold: 100000,
-  };
-
+const MotionSlider = ({ data, options }) => {
   const {
     state,
     currentIndex,
@@ -86,6 +81,16 @@ const MotionSlider = ({ data }) => {
 
 MotionSlider.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  options: PropTypes.shape({
+    nextSlideTime: PropTypes.number,
+    swipingThreshold: PropTypes.number,
+  }),
 };
 
+MotionSlider.defaultProps = {
+  options: {
+    nextSlideTime: 6000,
+    swipingThreshold: 100000,
+  },
+};
 export default MotionSlider;

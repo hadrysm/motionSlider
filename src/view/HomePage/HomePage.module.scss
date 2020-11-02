@@ -1,8 +1,8 @@
 @import 'sass/index.scss';
 
 .wrapper {
-  height: 00vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
+  height: 90vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 90);
   width: 100%;
   display: flex;
   flex-direction: column;

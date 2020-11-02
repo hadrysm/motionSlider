@@ -2,7 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { wrap } from 'popmotion';
 import { swipePower } from 'helpers';
 
-export const useMotionSlider = (data, { nextSlideTime, swipingThreshold }) => {
+export const useMotionSlider = (
+  data,
+  { nextSlideTime = 6000, swipingThreshold = 100000 },
+) => {
   const [[page, direction], setPage] = useState([0, 0]);
   const intervalRef = useRef(0);
 
