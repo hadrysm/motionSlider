@@ -37,30 +37,34 @@
     justify-content: center;
 
     .imgContainer {
-      height: 46rem;
+      height: 44rem;
       width: 34rem;
-
+      margin-bottom: 3rem;
+      background-color: transparent;
+      border-radius: 1rem;
+      box-shadow: 5px 3px 33px -15px $color-dark;
+      overflow: hidden;
       @include media(tablet) {
         margin: 0 5rem;
       }
 
       img {
-        border-radius: 1rem;
-        box-shadow: 5px 3px 33px -15px $color-dark;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
         pointer-events: none;
       }
     }
 
     .contentContainer {
-      position: absolute;
-      bottom: -5rem;
-      right: -4rem;
       max-width: 300px;
-
-      background-color: rgba($color: $color-background, $alpha: 0.85);
-
-      padding: 1rem 3rem;
+      position: absolute;
+      bottom: -3rem;
+      right: -4rem;
+      padding: 1rem 2rem;
       border-radius: 1rem;
+      background-color: rgba($color: $color-background, $alpha: 0.85);
 
       @include media(tablet) {
         position: static;

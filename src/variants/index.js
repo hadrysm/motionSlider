@@ -16,7 +16,7 @@ export const motionSliderVariants = {
   imgVariants: {
     hidden: (direction) => {
       return {
-        x: direction ? -30 : 30,
+        x: direction > 0 ? 30 : -30,
         opacity: 0,
       };
     },
@@ -26,7 +26,7 @@ export const motionSliderVariants = {
     },
     exit: (direction) => {
       return {
-        x: !direction ? 30 : -30,
+        x: direction < 0 ? 30 : -30,
         opacity: 0,
       };
     },

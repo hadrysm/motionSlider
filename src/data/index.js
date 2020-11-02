@@ -11,14 +11,14 @@ export const imagesData = [
     quote: `With the potential of being the best Yeezy 500 colorway.`,
   },
   {
-    id: 1,
+    id: 2,
     srcImg: img2,
     name: `Yeezy Boost 350 V 2 'Natural'`,
     price: '$ 255',
     quote: `Yeezy added a new colorway to their most popular line with the Yeezy Boost 350 V2 Natural.`,
   },
   {
-    id: 1,
+    id: 3,
     srcImg: img3,
     name: 'Yeezy Boost 350 V2 Zyon sneakers',
     price: '$ 307',

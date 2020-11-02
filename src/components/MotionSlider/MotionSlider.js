@@ -1,13 +1,13 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { AnimatePresence, motion } from 'framer-motion';
-import { wrap } from 'popmotion';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
-
-import { motionSliderVariants } from 'variants';
-import { swipePower } from 'helpers';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+
+import { motionSliderVariants } from 'variants';
+import { useMotionSlider } from 'hooks/useMotionSlider';
 
 import {
   container,
@@ -20,30 +20,17 @@ import {
 
 const { containerVariants, imgVariants, textVariants } = motionSliderVariants;
 
-// can swipe
-const swipingThreshold = 10000;
-
-const MotionSlider = ({ data }) => {
-  const [[page, direction], setPage] = useState([0, 0]);
-
-  // wrap(0, 1, 0.5); // 0.5
-  // wrap(0, 1, 1.5); // 0.5
-  const currentIndex = wrap(0, data.length, page);
+const MotionSlider = ({ data, options }) => {
+  const {
+    state,
+    currentIndex,
+    handleChangeSlide,
+    handleDrag,
+  } = useMotionSlider(data, options);
 
   const { srcImg, name, quote, price } = data[currentIndex];
 
-  const handleChangeSlide = (newDirection) => {
-    setPage(([prevPage]) => [prevPage + newDirection, newDirection]);
-  };
-
-  const handleDrag = (e, { offset, velocity }) => {
-    const swipe = swipePower(offset.x, velocity.x);
-    if (swipe < -swipingThreshold) {
-      handleChangeSlide(1);
-    } else if (swipe > swipingThreshold) {
-      handleChangeSlide(-1);
-    }
-  };
+  const [page, direction] = state;
 
   return (
     <div className={container}>
@@ -62,7 +49,13 @@ const MotionSlider = ({ data }) => {
           onDragEnd={(e, info) => handleDrag(e, info)}
         >
           <motion.div className={imgContainer} variants={imgVariants}>
-            <img src={srcImg} alt={name} />
+            <LazyLoadImage
+              effect="blur"
+              width="100%"
+              height="100%"
+              src={srcImg}
+              alt={name}
+            />
           </motion.div>
           <div className={contentContainer}>
             <motion.h4 variants={textVariants}>{quote}</motion.h4>
@@ -88,6 +81,16 @@ const MotionSlider = ({ data }) => {
 
 MotionSlider.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  options: PropTypes.shape({
+    nextSlideTime: PropTypes.number,
+    swipingThreshold: PropTypes.number,
+  }),
 };
 
+MotionSlider.defaultProps = {
+  options: {
+    nextSlideTime: 6000,
+    swipingThreshold: 100000,
+  },
+};
 export default MotionSlider;
