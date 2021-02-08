@@ -1,10 +1,17 @@
-# slider | simple slider with framer motion
+# Slider | simple slider with framer motion
 
-- Live: [website](https://hadrysm-slider.netlify.app/)
+<img width="100%" src="https://i.ibb.co/NW0SqD8/Group-2.png" />
 
-Simple slideer using framer-motion
+## Live 📍
 
-## Built With
+- [website](https://hadrysm-slider.netlify.app/)
+
+## Project Overview 🎉
+
+Simple slider using framer-motion. I used <a href="https://bradfrost.com/blog/post/atomic-web-design">
+Atomic Design</a> for components architecture.
+
+## Tech/framework used 🔧
 
 - Create React App
 - SCSS Modules 💅
@@ -12,40 +19,38 @@ Simple slideer using framer-motion
 - framer-motion
 - eslint | prettier
 
-## Getting Started
+## Screenshots 📺
 
-To download the project, download it to your computer. Then follow the instructions.
+<p align="center">
+    <img src="https://i.ibb.co/ZSqfDCH/screenshot-hadrysm-slider-netlify-app-1612802417808.png" alt="Screen Shot">
+</p>
 
-### Installing
+<p align="center">
+    <img src="https://i.ibb.co/V9TZDSB/screenshot-hadrysm-slider-netlify-app-1612802398698-1.png" alt="Screen Shot">
+</p>
 
-To initiate the project, enter in the terminal:
+## Installation 💾
 
-```
+```bash
+git clone https://github.com/hadrysm/motionSlider.git
+
 npm install
 ```
 
 To start a live server, enter in the terminal:
-
 ```
 npm start
 ```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Code Example/Issues 🔍
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+If you have any issues, please let me know in the issues section or directly to m.hadrys.95@gmail.com
 
-To create a distribution version, type in terminal:
+## Credits and sources
 
-```
-
-npm run build
-
-```
-
-Builds the app for production to the `build` folder.<br />
+Illustrations: undraw <br/>
+Icons: react-icons
 
 ## Author
 
-- **[Mateusz Hadryś](https://github.com/hadrysm)** - _coding_
+- **[Mateusz Hadryś](https://github.com/hadrysm)**
